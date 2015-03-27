@@ -33,6 +33,7 @@ openframeworks:
 
 funzione di esempio per la costruzione del url:
 
+<code>
 string getCameraMediaPath(int width=640, int height=360, int quality=50, int bitrate=0x2dc6c0) {
 	string buffer;
 	buffer = "rtsp://192.168.1.1/MJPG?W=";
@@ -45,11 +46,11 @@ string getCameraMediaPath(int width=640, int height=360, int quality=50, int bit
 	buffer += ofToString(bitrate); 
 	return buffer; 
 }
-
-
+</code>
 
 /* esempio rtsp con ofVideoPlayer */
 
+<pre>
  ofVideoPlayer p;
 
  string getCameraMediaPath( int width=640, int height=360, int quality=50, int bitrate=0x2dc6c0 ) {
@@ -84,20 +85,21 @@ string getCameraMediaPath(int width=640, int height=360, int quality=50, int bit
          ofBackgroundGradient(255,0);
          p.draw(0,0);
  }
-
+</pre>
 /*----------------------------------------------------*/
 
 AMAZON goXtreme: http://www.amazon.it/gp/product/B00IYF3T74?psc=1&redirect=true&ref_=oh_aui_detailpage_o02_s00
 DESCRIZIONE PROTOCOLLO: http://it.wikipedia.org/wiki/Real_Time_Streaming_Protocol
 
-SPECIFICHE CAMERA GOXTREME:
-	• Connessioni: mini porta USB, porta micro schede di memoria SD, uscita mini HDMI, ingresso jack mono da 2,5 mm per microfoni esterni
-	• Sensore immagine: 5.0 Megapixel (CMOS)
-	• Formato immagine: JPG
-	• Risoluzione immagine: 8 MP (3264 x 1080px, interpolati), 5 MP (2560x1920px)
-	• Formato video: h.264
-	• Risoluzione video: 1080p (1920x1080px) @30fps, 720p (1280x720px) @60fps,
-	• 720p (1280x720px) @30fps
+<p>SPECIFICHE CAMERA GOXTREME:</p>
+<ul>
+<li>	• Connessioni: mini porta USB, porta micro schede di memoria SD, uscita mini HDMI, ingresso jack mono da 2,5 mm per microfoni esterni</li>
+<li>	• Sensore immagine: 5.0 Megapixel (CMOS)</li>
+<li>	• Formato immagine: JPG</li>
+<li>	• Risoluzione immagine: 8 MP (3264 x 1080px, interpolati), 5 MP (2560x1920px)</li>
+<li>	• Formato video: h.264</li>
+<li>	• Risoluzione video: 1080p (1920x1080px) @30fps, 720p (1280x720px) @60fps,</li>
+<li>	• 720p (1280x720px) @30fps</li>
 
 ![alt tag](https://github.com/kashimAstro/RTSPgoxtreme/blob/master/MY.jpg)
 ![alt tag](https://github.com/kashimAstro/RTSPgoxtreme/blob/master/rtsp.png)
