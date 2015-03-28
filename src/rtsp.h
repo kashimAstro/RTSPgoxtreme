@@ -20,10 +20,10 @@ class RTSPXtreme {
 
 		remote_path.push_back("/");   //0
 		remote_path.push_back("DCMI");//1
-		remote_path.push_back("DCMI");//2
-		remote_path.push_back("DCMI");//3
-		remote_path.push_back("DCMI");//4
-		remote_path.push_back("DCMI");//5
+		remote_path.push_back("DCMI/100CARDV/");//2
+		remote_path.push_back("DCMI/100EVENT/");//3
+		remote_path.push_back("DCMI/IMAGE/");//4
+		remote_path.push_back("DCMI/VIDEO/");//5
 	}
 
 	~RTSPXtreme(){
@@ -62,7 +62,7 @@ class RTSPXtreme {
 
         }
 
-	bool sendFile(string _path,string remotepath) {
+	bool sendFile(string _path, string remotepath) {
 		ofFile file(_path);
 		string path = file.path().substr(0,file.path().length()-file.getFileName().length());
 		if(client.send(file.getFileName(),path,"/")>0){
@@ -71,7 +71,7 @@ class RTSPXtreme {
 		return false;
 	}
 
-	bool getFile(string name,string path, int remotepath){	
+	bool getFile(string name, string path, int remotepath){	
 		if(client.get(name,path,remote_path[remotepath])>0){
 		       return true;
 		}
