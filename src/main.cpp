@@ -6,8 +6,8 @@ class xApp : public ofBaseApp {
 	public:
 		ofEasyCam cam;
 		ofVideoPlayer p;
-		int w,h;
 		RTSPXtreme rtsp;
+		int w,h;
 
 		void setup(){
 			ofSetFrameRate(25);
@@ -31,7 +31,12 @@ class xApp : public ofBaseApp {
 		}
 
 		void keyPressed(int key){
-
+			if(key == 'l'){
+				vector<string> s = rtsp.list(4);
+				for(int i = 0; i < s.size(); i++) {
+					cout << s[i] <<endl;
+				}
+			}
 		}
 };
 

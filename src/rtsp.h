@@ -15,19 +15,26 @@ class RTSPXtreme {
 		host="192.168.1.1";
 		user="1234567890";
 		pass="1234567890";
+
 		client.setup(host,user,pass);
 		client.setVerbose(true);
 
-		remote_path.push_back("/");   //0
-		remote_path.push_back("DCMI");//1
-		remote_path.push_back("DCMI/100CARDV/");//2
-		remote_path.push_back("DCMI/100EVENT/");//3
-		remote_path.push_back("DCMI/IMAGE/");//4
-		remote_path.push_back("DCMI/VIDEO/");//5
+		remote_path.push_back("/");             //0
+		remote_path.push_back("/DCIM/");	//1
+		remote_path.push_back("/DCIM/100CARDV/");//2
+		remote_path.push_back("/DCIM/100EVENT/");//3
+		remote_path.push_back("/DCIM/100IMAGE/");   //4
+		remote_path.push_back("/DCIM/100VIDEO/");   //5
+		cout<<"init"<<endl;
 	}
 
 	~RTSPXtreme(){
 
+	}
+
+	vector<string> list(int path){
+		cout<<"path:"<<remote_path[path]<<endl;
+		return client.list(remote_path[path]);
 	}
 
 	string getCameraTrack1() {
