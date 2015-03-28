@@ -1,31 +1,21 @@
 #include "ofMain.h"
 #include "ofAppGlutWindow.h"
+#include "rtsp.h"
 
 class xApp : public ofBaseApp {
 	public:
 		ofEasyCam cam;
-		int w,h;
 		ofVideoPlayer p;
-
-		string getCameraMediaPath( int width=640, int height=360, int quality=50, int bitrate=0x2dc6c0 ) { 
-		        string buffer;
-		        buffer = "rtsp://192.168.1.1/MJPG?W=";
-		        buffer += ofToString(width);
-		        buffer += ofToString("&H=");
-		        buffer += ofToString(height);                              
-		        buffer += ofToString("&Q=");
-		        buffer += ofToString(quality);
-		        buffer += ofToString("&BR=");
-		        buffer += ofToString(bitrate);
-		        return buffer;                  
-		}
+		int w,h;
+		RTSPXtreme rtsp;
 
 		void setup(){
-			ofSetFrameRate(150);
+			ofSetFrameRate(25);
 
 			w=ofGetScreenWidth();
 			h=ofGetScreenHeight();
-			string path = getCameraMediaPath();
+
+			string path = rtsp.getCameraMediaPath();
 			p.loadMovie(path);
 			p.play();
 		}
